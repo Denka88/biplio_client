@@ -1,9 +1,17 @@
-package org.example;
+package org.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Author {
 
+
+    @JsonProperty("lastName")
     private String lastName;
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("surName")
     private String surName;
 
     public Author() {
@@ -37,5 +45,10 @@ public class Author {
 
     public void setSurName(String surName) {
         this.surName = surName;
+    }
+
+    @Override
+    public String toString() {
+        return "Автор: " + name + " " + lastName + " " + surName;
     }
 }

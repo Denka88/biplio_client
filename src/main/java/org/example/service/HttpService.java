@@ -10,6 +10,24 @@ public class HttpService {
 
     private static OkHttpClient client = new OkHttpClient();
 
+    public static String get(String url, int id) {
+        String result = "";
+        Request request = new Request
+                .Builder()
+                .url(url + id)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                throw new IOException("Запрос к серверу не был успешен: " + response.code() + " " + response.message());
+            }
+            result = response.body().string();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            return result;
+        }
+    }
+
     public static String get(String url) {
         String result = "";
         Request request = new Request
