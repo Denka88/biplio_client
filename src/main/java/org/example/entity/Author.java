@@ -6,7 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Author {
 
-
+    @JsonProperty("id")
+    private int id;
     @JsonProperty("lastName")
     private String lastName;
     @JsonProperty("name")
@@ -49,6 +50,6 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Автор: " + name + " " + lastName + " " + surName;
+        return "Автор: "+ id + " " + name + " " + lastName + " " + surName;
     }
 }

@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Genre {
-    
+
+    @JsonProperty("id")
+    private int id;
     @JsonProperty("title")
     private String title;
 
@@ -24,8 +26,12 @@ public class Genre {
         this.title = title;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
-        return "Жанр: " + title;
+        return "Жанр: " + id + " " + title;
     }
 }

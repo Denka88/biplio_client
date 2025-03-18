@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
-    
+
+    @JsonProperty("id")
+    private int id;
     @JsonProperty("author")
     private Author author;
     @JsonProperty("publisher")
@@ -57,8 +59,12 @@ public class Book {
         this.year = year;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
-        return "Книга: " + year + ", " + author.toString() + ", " + publisher.toString() + ", " + genre.toString();
+        return "Книга: " + id + ", " + year + ", " + author.toString() + ", " + publisher.toString() + ", " + genre.toString();
     }
 }

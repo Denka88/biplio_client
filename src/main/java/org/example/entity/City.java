@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class City {
-    
+
+    @JsonProperty("id")
+    private int id;
     @JsonProperty("title")
     private String title;
 
@@ -24,8 +26,12 @@ public class City {
         this.title = title;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
-        return "Город: " + title;
+        return "Город: " + id + " " + title;
     }
 }

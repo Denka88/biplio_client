@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Publisher {
+
+    @JsonProperty("id")
+    private int id;
     
     @JsonProperty("title")
     private String title;
@@ -35,9 +38,13 @@ public class Publisher {
     public void setCity(City city) {
         this.city = city;
     }
+    
+    public int getId() {
+        return id;
+    }
 
     @Override
     public String toString() {
-        return "Издатель: " + title + " " + city.toString();
+        return "Издатель: " + id + " " + title + " " + city.toString();
     }
 }
