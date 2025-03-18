@@ -67,6 +67,8 @@ public class Menu {
         System.out.println("╦Главное меню╦");
         System.out.println("║1. Получить список всех авторов║");
         System.out.println("║2. Получить автора по id║");
+        System.out.println("║3. Удалить автора║");
+        System.out.println("║4. Добавить автора║");
         System.out.println("║0. Назад║");
         System.out.print("║Введите пункт меню: ");
 
@@ -94,6 +96,16 @@ public class Menu {
                 Author author = mapper.convertValue(dataAuthor, Author.class);
                 System.out.println(author.toString());
                 break;
+            }
+            case 3:{
+                System.out.println("Введите id автора: ");
+                int id = scan.nextInt();
+                HttpService.delete("http://localhost:8080/api/v1/author?id=", id);
+                System.out.println("Автор удален");
+                break;
+            }
+            case 4:{
+
             }
             default:{
                 System.out.println("Вы ввели неверное значение!");
